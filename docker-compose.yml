@@ -1,0 +1,21 @@
+version: '3'
+services:
+  jenkins:
+        image: '10ac752470c4'
+        container_name: "jenkins1"
+        #labels:
+        #   kompose.service.type:nodeport
+        ports:
+          - '8080:8080'
+          - '443:8443'
+          - '50000:50000'
+        volumes:
+          - /srv/data/jenkins_data:/jenkins_home
+          - /srv/data/jenkins:/var/jenkins_config
+          - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  jenkins_data:
+      driver: local
+  jenkins:
+      driver: local  
