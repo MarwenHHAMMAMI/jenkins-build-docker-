@@ -6,11 +6,11 @@ node{
 	}
 
 	stage('Build image') {
-    		app = docker.build("xavki/nginx")
+    		app = docker.build("test/nginx")
 	}	
 
 	stage('Test image') {
-    		docker.image('test/nginx').withRun('-p 80:80') { c ->
+    		docker.image('nginx:latest').withRun('-p 80:80') { c ->
 
     		sh 'docker ps'
 
